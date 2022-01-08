@@ -13,8 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get("/city", [CityController::class, "index"]);
+//Route::get("/cityList", [CityController::class, "index"]);
+
+//Route::get('cityList', 'CityController@index');
+
+Route::get("/", [CityController::class,'index']);
+
+Route::resources([
+	"city" => CityController::class
+]);
