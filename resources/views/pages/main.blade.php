@@ -82,11 +82,9 @@
 <div class='container lant-restaurante'>
 	<div class='row' id='popRest'>
 		<h4>Restaurante populare</h4>
-		<!-- Continut completat din javascript cu for -->
-		<div class="alert alert-danger">Aici de pus lista restaurante populare234 !!!!</div>
+		<div class="alert alert-danger">Aici de pus lista restaurante populare !!!!</div>
 	</div>
 </div>		
-	
 
 
 

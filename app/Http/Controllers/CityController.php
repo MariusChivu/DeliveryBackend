@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\CityList;
 use App\Models\RestaurantCity;
+use App\Models\Restaurant;
 
 class CityController extends Controller
 {
@@ -29,13 +30,31 @@ class CityController extends Controller
      */
     public function show($name)
     {
+		$restLists = $this->restaurantList($name);
+		
+		$restaurant = [];
+		foreach($restLists as $rest) {
+			$rests = json_decode(Restaurant::where("id", $rest["id"])->get(), true);
+			array_push($restaurant, $rests);
+		//	var_dump($restaurant);
+		}
+
+		return view("pages.city", compact("restaurant", "name"));
+	}
+
+	/**
+	 * 
+	 */
+	public function restaurantList($name)
+	{
+
+		
         $id = CityList::where("name", $name)->get();
 		$id = json_decode($id);
 		$id = $id[0]->id;
-
-		$restaurant = RestaurantCity::where("rest_id", $id)->get();
-		$restaurant = json_decode($restaurant)[0];
-		return view("pages.city", compact("restaurant"));
+		$rest_id = RestaurantCity::where("city_id", $id)->get();
+				
+		return $rest_id;
 	}
 
     /**

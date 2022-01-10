@@ -22,7 +22,6 @@ use Illuminate\Support\Facades\Route;
 //Route::get('cityList', 'CityController@index');
 
 Route::get("/", [CityController::class,'index']);
+Route::resource("city", CityController::class);
 
-Route::resources([
-	"city" => CityController::class
-]);
+

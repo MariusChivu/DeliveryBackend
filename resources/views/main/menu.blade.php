@@ -1,7 +1,7 @@
 <nav class='navbar navbar-expand-lg glass-bg' id='navbar'>
 	<div class='container'>
 		<div class='navbar-brand-div'>
-			<a class='navbar-brand' href='index.php'><img src='{{ asset("img/logo.png") }}' alt='Food Delivery'>&nbsp; {{ config("app.name") }}</a>
+			<a class='navbar-brand' href='/'><img src='{{ asset("img/logo.png") }}' alt='Food Delivery'>&nbsp; {{ config("app.name") }}</a>
 		</div>
 
 		<div class='navbar-toggler hamburger' data-bs-toggle='collapse' data-bs-target='#navbarCollapse'>
