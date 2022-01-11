@@ -18,7 +18,7 @@
 	<div class='row'>
 			<h2>Cauta-ne in orașul tău</h2>
 			<div class='orase-container' id='container-oras'>
-				@foreach ($city as $item)
+				@foreach ($citys as $item)
 					<div class='box-oras col-md-2'>
 						<a href='{{ url("city")}}/{{$item->name}}'>
 							<span class='oras-nume'>{{$item->name}}</span>

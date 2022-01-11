@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\RestaurantController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -23,5 +24,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("/", [CityController::class,'index']);
 Route::resource("city", CityController::class);
+Route::resource("restaurant/{name}/{city}/{id}", RestaurantController::class);
 
 

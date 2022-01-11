@@ -19,7 +19,7 @@
 					<div class='box-oras-restaurant col-md-2'>
 						<a href='/restaurant/{{ $item["name"] }}/{{ $name }}/{{ $items[0]["id"] }}'>
 							<span class='oras-nume-restaurant'>{{$item["name"] }}</span>
-							<span class='oras-nume-recenzie'><i class='fas fa-star'></i> 1/5 120 km</span>
+							<span class='oras-nume-recenzie'><i class='fas fa-star'></i> {{ $item["star"] }}/5 120 km</span>
 							<div class='img-box'>
 								<img src='{{ asset("img/restaurante/".$item["img"]."/icon.jpg") }}' alt='{{ $item["name"] }}'>
 							</div>
