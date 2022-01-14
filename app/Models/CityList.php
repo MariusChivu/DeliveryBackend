@@ -14,7 +14,8 @@ class CityList extends Model
 	 */
 	static function getCityId($name)
 	{	
-        $id = CityList::where("name", $name)->get();
+        $id = CityList::where("name", $name)
+		->get();
 		$id = json_decode($id);
 		$id = $id[0]->id;
 

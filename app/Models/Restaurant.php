@@ -28,6 +28,39 @@ class Restaurant extends Model
 	}
 
 	/**
+	 * get restaurant id
+	 */
+	private function getId($name)
+	{
+		$id = Restaurant::where("name", $name)->get();
+		$id = json_decode($id);
+		$id = $id[0]->id;
+
+		return $id;
+	}
+
+	/**
+	 * 
+	 */
+	static function getRestImg($name)
+	{
+		$img = Restaurant::where("name", $name)->get();
+		$img = json_decode($img);
+		$img = $img[0]->img;
+
+		return $img;
+		
+	}
+	
+	/**
+	 * create restaurant page
+	 */
+	public function createPage($name, $city, $id)
+	{
+		$id = $this->getId($name);
+	}
+
+	/**
 	 * get restaurant list
 	 */
 	private function _getRestaurantList($name)
