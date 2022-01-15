@@ -21,9 +21,14 @@ use Illuminate\Support\Facades\Route;
 //Route::get("/cityList", [CityController::class, "index"]);
 
 //Route::get('cityList', 'CityController@index');
+Route::get('/contact', function () {
+    return view('pages.contact');
+});
 
 Route::get("/", [CityController::class,'index']);
 Route::resource("city", CityController::class);
-Route::resource("restaurant/{name}/{city}/{id}", RestaurantController::class);
 
+
+
+Route::resource("restaurant/{name}/{city}/{id}", RestaurantController::class);
 

@@ -16,7 +16,7 @@
 
 <div class='container orase'>
 	<div class='row'>
-			<h2>Cauta-ne in orașul tău</h2>
+			<h2>Caută-ne in orașul tău</h2>
 			<div class='orase-container' id='container-oras'>
 				@foreach ($citys as $item)
 					<div class='box-oras col-md-2'>
@@ -82,7 +82,17 @@
 <div class='container lant-restaurante'>
 	<div class='row' id='popRest'>
 		<h4>Restaurante populare</h4>
-		<div class="alert alert-danger">Aici de pus lista restaurante populare !!!!</div>
+			@foreach ($popularRestaurant as $item)	
+				<div class='col-md-2'>
+					{{ $item[1] }}<br>
+					@for ($i = 0; $i < (int) $item[0]; $i++)
+						<i class='fas fa-star'></i>
+					@endfor
+					@if (explode('.', $item[0]) >= 5)	
+						<i class="fas fa-star-half-alt"></i>
+					@endif
+				</div>
+			@endforeach
 	</div>
 </div>		
 

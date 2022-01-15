@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\CityList;
 use App\Models\Restaurant;
+use App\Models\Link;
 
 class CityController extends Controller
 {
@@ -16,7 +17,15 @@ class CityController extends Controller
     public function index()
     {
 		$citys = CityList::getCityList();
-		return view("pages.main", compact("citys"));
+		$popularRestaurant = Restaurant::popularRestaurantList();
+		$download = Link::getDownload();
+
+		return view("pages.main", 
+		compact(
+			"citys",
+			"popularRestaurant",
+			"download",
+		));
     }
 
     /**

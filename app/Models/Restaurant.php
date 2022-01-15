@@ -67,6 +67,26 @@ class Restaurant extends Model
 	}
 
 	/**
+	 * Get popular Restaurant List
+	 */
+	static function popularRestaurantList()
+	{
+		$restLists = Restaurant::take(13)
+		->get();
+		$restaurant = [];
+		foreach($restLists as $rest) {
+			$star = Reviews::avgStars($rest['id']);
+			$rests[0]['star'] = $star;
+			
+			$restaurant["".$star."-".$rest['name']] = [$star, $rest["name"]];
+			
+		}
+		krsort($restaurant);
+		
+		return($restaurant);
+	}
+
+	/**
 	 * TO DOO !!!!	
 	 * Sort restaurant list
 	 */
