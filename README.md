@@ -1,3 +1,5 @@
+<img src='https://wakatime.com/@fc2320a8-2dfd-412b-91b1-a10467918a4b/projects/hrykmmrajy?start=2022-01-15&end=2022-01-15'>
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
