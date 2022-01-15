@@ -1,4 +1,5 @@
-<img src='https://wakatime.com/@fc2320a8-2dfd-412b-91b1-a10467918a4b/projects/hrykmmrajy?start=2022-01-15&end=2022-01-15'>
+<a href="https://wakatime.com/badge/user/fc2320a8-2dfd-412b-91b1-a10467918a4b/project/7a50dafe-874b-439a-b55e-1637a860acde"><img src="https://wakatime.com/badge/user/fc2320a8-2dfd-412b-91b1-a10467918a4b/project/7a50dafe-874b-439a-b55e-1637a860acde.svg" alt="wakatime"></a>
+
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
