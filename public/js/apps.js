@@ -24,3 +24,42 @@ $(window).scroll(function() {
 		hidden.addClass('d-none');
 	}
 });
+
+function getLocation() {
+	navigator.geolocation.watchPosition(function(position) {
+		navigator.geolocation.watchPosition(getPosition);
+		writePoistion(position);
+		window.location.href = "comanda.php";
+
+	},
+	function(error) {
+		if(error.code == error.PERMISSION_DENIED) {
+			$('#modalLocatie').modal('show'); 
+		}
+	});
+}
+
+function writePoistion(position) {
+	var lat = position.coords.latitude;
+	var long = position.coords.longitude;
+	var inputLocatie = document.getElementById("inputLocatie");
+
+	inputLocatie.value = `${lat}, ${long}`;
+	document.cookie = `position=${inputLocatie.value}`;
+}
+
+function getPosition(position) {
+	var lat = position.coords.latitude;
+	var long = position.coords.longitude;
+	var locatie = lat + ", " + long;
+	return locatie;
+}
+
+function getCookie(cookieName) {
+	let cookie = {};
+	document.cookie.split(';').forEach(function(el) {
+	  let [key,value] = el.split('=');
+	  cookie[key.trim()] = value;
+	});
+	return cookie[cookieName];
+  }

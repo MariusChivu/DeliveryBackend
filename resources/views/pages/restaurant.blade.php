@@ -21,9 +21,14 @@
 							@endif
 							{{ $array[3] }}/5
 						</span>
-						<span class='badge bg-success pointer ms-2 p-2' data-bs-toggle='modal' data-bs-target='#reviews'>
-							<i class="fas fa-external-link-alt"></i>
+						<span class='d-inline badge bg-success pointer ms-2 p-2' data-bs-toggle='modal' data-bs-target='#reviews'>
+							<i class='fas fa-star'></i> <i class="fas fa-external-link-alt"></i>
 						</span>
+						<span class='d-inline badge bg-success pointer ms-2 p-2'>
+							<a href='http://www.google.com/maps/place/{{ $coords }}' target="_blank"><i class="fas fa-map-marked-alt"></i></a>
+						</span>
+						
+						
 					</div>
 				</div>
 			</div>

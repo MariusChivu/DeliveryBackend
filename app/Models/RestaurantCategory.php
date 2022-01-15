@@ -27,6 +27,9 @@ class RestaurantCategory extends Model
 		return $category;
 	}
 
+	/**
+	 * Get restaurant product by category
+	 */
 	static function getCategoryProduct($id, $restId)
 	{
 		$categories = RestaurantProduct::where("cat_id", $id)

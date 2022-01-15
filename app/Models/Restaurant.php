@@ -10,12 +10,15 @@ class Restaurant extends Model
 {
     use HasFactory;
 
+	/**
+	 * Get Restaurant List by City
+	 */
 	static function restaurantList($name, $sort)
 	{
 		$restLists = Restaurant::_getRestaurantList($name);	
 		$restaurant = [];
 		foreach($restLists as $rest) {
-			$rests = json_decode(Restaurant::where("id", $rest["id"])->get(), true);
+			$rests = json_decode(Restaurant::where("id", $rest["rest_id"])->get(), true);
 			$star = Reviews::avgStars($rests[0]['id']);
 			$rests[0]['star'] = $star;
 			
@@ -40,7 +43,7 @@ class Restaurant extends Model
 	}
 
 	/**
-	 * 
+	 * Get restaurant images folder
 	 */
 	static function getRestImg($name)
 	{
@@ -50,14 +53,6 @@ class Restaurant extends Model
 
 		return $img;
 		
-	}
-	
-	/**
-	 * create restaurant page
-	 */
-	public function createPage($name, $city, $id)
-	{
-		$id = $this->getId($name);
 	}
 
 	/**
@@ -71,6 +66,10 @@ class Restaurant extends Model
 		return $rest_id;
 	}
 
+	/**
+	 * TO DOO !!!!	
+	 * Sort restaurant list
+	 */
 	private function _sortRestaurantList($list, $sort)
 	{
 		switch($sort) {

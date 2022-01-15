@@ -86,6 +86,22 @@
 	</div>
 </div>		
 
-
+<div class="modal fade" id="modalLocatie">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title"><i class="fas fa-map-marker-alt"></i> Locație</h4>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+			</div>
+			<div class="modal-body">
+				<p>Avem nevoie de locația ta pentru a vedea restaurantele din apropiere!</p>
+				<p>Te rugăm să activezi locația și să încerci iar.</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Închide</button>
+			</div>
+		</div>
+	</div>
+</div>
 
 @endsection

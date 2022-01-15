@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CityList;
 use Illuminate\Http\Request;
 use App\Models\Reviews;
 use App\Models\Restaurant;
 use App\Models\RestaurantCategory;
+use App\Models\RestaurantCity;
 
 class RestaurantController extends Controller
 {
@@ -19,6 +21,9 @@ class RestaurantController extends Controller
 		$categoryProduct = [];
 		$reviews = Reviews::getReviews($id);
 
+		$cityId = CityList::getCityId($city);
+		$coords = RestaurantCity::getRestaurantCoords($id, $cityId);
+
 		for ($i=0; $i < sizeOf($categoryMenu); $i++) { 
 			array_push($categoryProduct, RestaurantCategory::getCategoryProduct($categoryMenu[$i][0], $id));
 		}
@@ -29,7 +34,8 @@ class RestaurantController extends Controller
 			"categoryMenu", 
 			"categoryProduct", 
 			"imgFolder", 
-			"reviews"
+			"reviews",
+			"coords",
 		));
 	}
 }
