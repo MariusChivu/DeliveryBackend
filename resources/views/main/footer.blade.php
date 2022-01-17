@@ -1,3 +1,7 @@
+<div class='scroll-top p-3 m-3 mb-5 d-flex justify-content-center align-items-center' id='scroll-top' onclick="toTop()">
+	<i class="fas fa-chevron-up"></i>
+</div>
+
 <div class='container-fluid footer'>
 	<div class='row'>
 		<div class='col-md-3 footer-contact'>

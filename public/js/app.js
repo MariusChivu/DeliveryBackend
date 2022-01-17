@@ -2062,6 +2062,8 @@ module.exports = {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./customJs */ "./resources/js/customJs.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -2092,6 +2094,105 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/customJs.js":
+/*!**********************************!*\
+  !*** ./resources/js/customJs.js ***!
+  \**********************************/
+/***/ (() => {
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+// set active class for restaurant menu when scroll
+$(document).ready(function () {
+  $("#active").addClass('active');
+  $("body").scrollspy({
+    target: ".nav",
+    offset: 0
+  });
+}); // make restaurant menu fixed
+
+$(window).scroll(function () {
+  var scroll = $(window).scrollTop() / $("#scroll-to-fix-menu").height() * 100;
+  var meniu = $(".restaurant-meniu");
+  var meniuH = $(".restaurant-meniu").height();
+  var hidden = $(".hidden-div");
+  hidden.attr('style', 'height: ' + meniuH + 'px');
+
+  if (scroll >= 126) {
+    meniu.addClass('fixed-top');
+    meniu.attr('style', 'margin-top: 0px!important; box-shadow: 0px 10px 15px -10px #000000bf;');
+    hidden.addClass('d-block');
+    hidden.removeClass('d-none');
+  } else {
+    meniu.removeClass('fixed-top');
+    meniu.removeAttr('style');
+    hidden.removeClass('d-block');
+    hidden.addClass('d-none');
+  }
+});
+
+function getLocation() {
+  navigator.geolocation.watchPosition(function (position) {
+    navigator.geolocation.watchPosition(getPosition);
+    writePoistion(position);
+    window.location.href = "near/distance";
+  }, function (error) {
+    if (error.code == error.PERMISSION_DENIED) {
+      $('#modalLocatie').modal('show');
+    }
+  });
+}
+
+function writePoistion(position) {
+  var lat = position.coords.latitude;
+  var _long = position.coords.longitude;
+  var inputLocatie = document.getElementById("inputLocatie");
+  inputLocatie.value = "".concat(lat, ", ").concat(_long);
+  document.cookie = "position=".concat(inputLocatie.value);
+}
+
+function getPosition(position) {
+  var lat = position.coords.latitude;
+  var _long2 = position.coords.longitude;
+  var locatie = lat + ", " + _long2;
+  return locatie;
+}
+
+function getCookie(cookieName) {
+  var cookie = {};
+  document.cookie.split(';').forEach(function (el) {
+    var _el$split = el.split('='),
+        _el$split2 = _slicedToArray(_el$split, 2),
+        key = _el$split2[0],
+        value = _el$split2[1];
+
+    cookie[key.trim()] = value;
+  });
+  return cookie[cookieName];
+}
+
+topButton = document.getElementById("scroll-top");
+
+window.onscroll = function () {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    topButton.style.opacity = "1";
+  } else {
+    topButton.style.opacity = "0";
+  }
+};
 
 /***/ }),
 
