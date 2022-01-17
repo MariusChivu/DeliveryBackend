@@ -36,7 +36,7 @@ class CityController extends Controller
      */
     public function show($name)
     {
-		$restaurant = Restaurant::restaurantList($name, "star");
+		$restaurant = Restaurant::restaurantList($name);
 		return view("pages.city", compact("restaurant", "name"));
 	}
 

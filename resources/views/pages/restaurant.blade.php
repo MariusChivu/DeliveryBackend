@@ -1,4 +1,4 @@
-@extends('../index')
+@extends('index')
 @section('content')
 	<div id='noArray'>
 		<div id='scroll-to-fix-menu'>

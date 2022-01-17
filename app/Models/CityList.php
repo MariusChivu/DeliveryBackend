@@ -32,4 +32,17 @@ class CityList extends Model
 		
 		return $citys;
 	}
+
+	/**
+	 * Get City name by id
+	 */
+	static function getCityName($id)
+	{
+		$name = CityList::where("id", $id)
+		->get();
+		$name = json_decode($name);
+		$name = $name[0]->name;
+
+		return $name;
+	}
 }

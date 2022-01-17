@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use App\Http\Controllers\DistanceController;
+
 class RestaurantCity extends Model
 {
     use HasFactory;
@@ -20,7 +22,17 @@ class RestaurantCity extends Model
 		->get();
 		$coords = json_decode($coords);
 		$coords = $coords[0]->coords;
-		
+
 		return $coords;
 	}
+
+	/**
+	 * Get restaurant list for nearby command
+	 */
+	static function getRestaurantListNearby()
+	{
+		$restaurant = RestaurantCity::get();
+
+		return $restaurant;
+	} 
 }

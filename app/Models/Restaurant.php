@@ -13,7 +13,7 @@ class Restaurant extends Model
 	/**
 	 * Get Restaurant List by City
 	 */
-	static function restaurantList($name, $sort)
+	static function restaurantList($name)
 	{
 		$restLists = Restaurant::_getRestaurantList($name);	
 		$restaurant = [];
@@ -21,13 +21,22 @@ class Restaurant extends Model
 			$rests = json_decode(Restaurant::where("id", $rest["rest_id"])->get(), true);
 			$star = Reviews::avgStars($rests[0]['id']);
 			$rests[0]['star'] = $star;
-			
 			$restaurant["".$star."-".$rests[0]['name']] = $rests;
-			
 		}
 		krsort($restaurant);
 		
 		return($restaurant);
+	}
+
+	/**
+	 * Get nearby Restaurant List
+	 */
+	static function nearbyRestaurantList($id)
+	{
+		$rest = Restaurant::where("id", $id)
+		->get();
+
+		return $rest;
 	}
 
 	/**

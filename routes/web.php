@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\RestaurantController;
+use App\Http\Controllers\NearbyRestaurantsController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -27,8 +28,6 @@ Route::get('/contact', function () {
 
 Route::get("/", [CityController::class,'index']);
 Route::resource("city", CityController::class);
-
-
-
-Route::resource("restaurant/{name}/{city}/{id}", RestaurantController::class);
+Route::get("near/{sort}", [NearbyRestaurantsController::class, "index"]);
+Route::get("restaurant/{name}/{city}/{id}", [RestaurantController::class, "index"]);
 

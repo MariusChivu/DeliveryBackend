@@ -1,0 +1,29 @@
+.lant-restaurante {
+	margin-bottom: 90px;
+}
+
+.lant-restaurante {
+	.row {
+		text-align: center;
+		display: flex;
+		align-content: center;
+		align-items: center;
+		justify-content: center;
+	}
+
+	h4 {
+		margin-bottom: 40px;
+	}
+
+	.col-md-2 {
+		background-color: $colBg;
+		padding: 5px;
+		margin: 5px;
+	}
+
+	a,
+	a:link {
+		color: $black0;
+		text-decoration: none;
+	}
+}

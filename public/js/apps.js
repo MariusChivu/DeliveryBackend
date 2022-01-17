@@ -1,3 +1,4 @@
+
 // set active class for restaurant menu when scroll
 $(document).ready(function() {
 	$("#active").addClass('active');
@@ -29,7 +30,7 @@ function getLocation() {
 	navigator.geolocation.watchPosition(function(position) {
 		navigator.geolocation.watchPosition(getPosition);
 		writePoistion(position);
-		window.location.href = "comanda.php";
+		window.location.href = "near/distance";
 
 	},
 	function(error) {

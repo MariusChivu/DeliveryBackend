@@ -1,0 +1,44 @@
+.descarca {
+	background-color: $red;
+	color: $white;
+	padding: 20px 0;
+	margin-bottom: 90px;
+}
+
+.descarca {
+	img {
+		height: 300px;
+	}
+
+	.descarca-img {	
+		display: flex;
+		justify-content: flex-end;
+	}
+}
+
+.app-download {
+	margin-top: 60px;
+	font-size: 25px;
+}
+
+.app-download {
+	a,
+	.app-download a:link {
+		text-decoration: none;
+		color: $white;
+		padding: 10px;
+		background-color: $black;
+		border-radius: 10px;
+	}
+}
+
+.descarca-container {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.livrare {
+	margin-bottom: 90px;
+}

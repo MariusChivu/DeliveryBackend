@@ -1,0 +1,72 @@
+
+.footer {
+	background-color: $black;
+	color: $white;
+	padding: 20px;
+}
+
+.footer {
+	.row {
+		display: flex;
+		text-align: center;
+		justify-content: center;
+	}
+
+	.col-md-3 {
+		padding: 10px;
+		margin: 10px;
+	}
+
+	a,
+	a:link {
+		text-decoration: none;;
+		color: $white;
+		display: block;
+	}
+}
+
+.social-list,
+.social-icon {
+	display: flex;
+	align-content: center;
+	align-items: center;
+	justify-content: center;
+
+}
+.social-icon {
+	width: 45px;
+	height: 45px;
+	background-color: $white;
+	color: $black;
+	font-size: 25px;
+	border-radius: 200px;
+	margin: 10px;
+	padding: 15px;
+}
+
+.social-icon a,
+.social-icon a:link {
+	color: $black;
+	transition: 0.3s;
+}
+
+.social-icon a:hover {
+	color: $red;
+}
+
+
+.footer-contact a {
+	margin: 10px 0;
+}
+
+.footer img {
+	width: 50px;
+}
+
+.footer-about {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: $font;
+	font-weight: bold;
+}

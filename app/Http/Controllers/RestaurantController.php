@@ -27,7 +27,7 @@ class RestaurantController extends Controller
 		for ($i=0; $i < sizeOf($categoryMenu); $i++) { 
 			array_push($categoryProduct, RestaurantCategory::getCategoryProduct($categoryMenu[$i][0], $id));
 		}
-	//dd($categoryMenu[0][0]);
+	
 		return view("pages.restaurant", 
 		compact(
 			"array", 

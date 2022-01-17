@@ -1,0 +1,68 @@
+.oras-restaurant {
+	margin-top: 90px;
+	margin-bottom: 90px;
+}
+
+.box-oras-restaurant {
+	width: 300px;
+	height: 280px;
+	margin: 10px;
+	transition: box-shadow 0.3s;
+}
+
+.box-oras-restaurant:hover {
+	box-shadow: 0px 0px 7px 2px rgba(0,0,0,0.75);
+}
+
+.oras-nume-restaurant,
+.oras-nume-recenzie {
+	color: $white;
+	position: absolute;
+	z-index: 1;
+	margin-left: 10px;
+	font-weight: bold;
+	text-shadow: $textShadow;
+}
+
+.oras-nume-restaurant {
+	margin-top: 180px;
+	font-size: 30px;
+}
+
+.oras-nume-recenzie {
+	margin-top: 217px;
+	font-size: 20px;
+}
+
+.oras-nume-recenzie i {
+	color: $gold;
+}
+
+.oras-container-restaurant {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.tooDistant {
+	position: absolute;
+    width: 300px;
+    height: 280px;
+    background: $tooDist;
+    z-index: 9;
+	color: $white;
+	padding: 10px;
+	text-shadow: $textShadow;
+	font-size: 20px;
+}
+
+.sort-button,
+.sort-button a,
+.sort-button a:hover,
+.sort-button a:link
+ {
+	color: $gold!important;
+	font-size: 15px;
+	text-decoration: none;
+}

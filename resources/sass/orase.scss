@@ -1,0 +1,36 @@
+.orase {
+	margin-top: 90px;
+	margin-bottom: 90px;
+}
+
+.box-oras {
+	width: 200px;
+	height: 280px;
+	margin: 10px;
+	transition: box-shadow 0.3s;
+}
+
+.box-oras:hover {
+	box-shadow: 0px 0px 7px 2px $shadowColor;
+}
+
+.oras-nume {
+	color: $white;
+	position: absolute;
+	z-index: 1;
+	margin-top: 230px;
+	margin-left: 10px;
+	font-weight: bold;
+	font-size: 30px;
+	text-shadow: 1px 1px 1px $black0,
+	1px 1px 1px $black0,
+	-1px 1px 1px $black0,
+	1px 1px 1px $black0;
+}
+
+.orase-container {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: center;
+}

@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+const minifier = require('minifier');
 
 /*
  |--------------------------------------------------------------------------
@@ -12,21 +13,25 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        //
-    ]);
 
-	const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
-	mix.webpackConfig({
-	   plugins: [
-		   new BrowserSyncPlugin({
-			   files: [
-				   'app/**/*',
-				   'public/**/*',
-				   'resources/views/**/*',
-				   'routes/**/*'
-			   ]
-		   })
-	   ]
-	});
+mix.sass('resources/sass/app.scss', 'public/css');
+
+mix.then(() => {
+	minifier.minify('public/css/app.css')
+});
+
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+
+mix.webpackConfig({
+	plugins: [
+		new BrowserSyncPlugin({
+			files: [
+				'app/**/*',
+				'public/**/*',
+				'resources/views/**/*',
+				'routes/**/*'
+			]
+		})
+	]
+});

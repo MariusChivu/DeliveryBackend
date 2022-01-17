@@ -1,0 +1,36 @@
+.navbar, .navbar-brand {
+	font-weight: bold;
+	font-size: 30px;
+}
+
+.navbar-brand {
+	font-family: $font;
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+}
+
+.navbar {
+	a,
+	a:hover,
+	.navbar-toggler {
+		color: $black;
+	}
+
+	.navbar-collapse {
+		background-color: transparent;
+		text-align: center;
+		justify-content: flex-end;
+	}
+}
+
+.navbar-brand img {
+	width: 50px;
+	height: 51px;
+}
+
+@media (max-width: 992px) {
+	.navbar-btn-hidden {
+		display: none;
+	}
+}
