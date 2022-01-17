@@ -68,7 +68,7 @@ function getCookie(cookieName) {
 
 topButton = document.getElementById("scroll-top");
 window.onscroll = function() {
-	if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+	if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
 		topButton.style.opacity = "1";
 	} else {
 		topButton.style.opacity = "0";
