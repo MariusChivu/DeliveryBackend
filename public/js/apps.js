@@ -14,7 +14,7 @@ $(window).scroll(function() {
 	hidden.attr('style', 'height: '+meniuH+'px');
 
 	if (scroll >= 126) {
-		meniu.addClass('fixed-top');
+		//meniu.addClass('fixed-top');
 		meniu.attr('style', 'margin-top: 0px!important; box-shadow: 0px 10px 15px -10px #000000bf;');
 		hidden.addClass('d-block');
 		hidden.removeClass('d-none');

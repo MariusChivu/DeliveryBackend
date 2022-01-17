@@ -18,8 +18,15 @@
 				@foreach ($items as $item)
 					<div class='box-oras-restaurant col-md-2'>
 						<a href='/restaurant/{{ $item["name"] }}/{{ $name }}/{{ $items[0]["id"] }}'>
-							<span class='oras-nume-restaurant'>{{$item["name"] }}</span>
-							<span class='oras-nume-recenzie'><i class='fas fa-star'></i> {{ $item["star"] }}/5 120 km</span>
+							<span class='oras-nume-restaurant oras-city-restaurant'>{{$item["name"] }}</span>
+							<span class='oras-nume-recenzie oras-city-recenzie'>
+								@for ($i = 0; $i < (int) $item["star"]; $i++)
+									<i class='fas fa-star'></i>
+								@endfor
+								@if (abs(((int) $item["star"] - $item["star"]) * 10)>= 5)	
+									<i class="fas fa-star-half-alt"></i>
+								@endif
+							</span>
 							<div class='img-box'>
 								<img src='{{ asset("img/restaurante/".$item["img"]."/icon.jpg") }}' alt='{{ $item["name"] }}'>
 							</div>

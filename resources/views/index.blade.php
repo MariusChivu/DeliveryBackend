@@ -4,7 +4,8 @@
         <meta charset="UTF-8">
         <title>{{ env("APP_TITLE") }}</title>
 		<link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC' crossorigin='anonymous'>
-		<link rel='stylesheet' href='{{ asset("css/app.min.css") }}'><link rel='icon' href='{{ asset("img/logo.png") }}'>
+		<link rel='stylesheet'  href='{{ asset("css/app.min.css") }}'>
+		<link rel='icon' href='{{ asset("img/logo.png") }}'>
 		<link rel='apple-touch-icon' href='{{ asset("img/logo.png") }}'>
 		<meta name="viewport" content="width=device-width, initial-scale=0.75, minimum-scale=0.75, shrink-to-fit=no">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">

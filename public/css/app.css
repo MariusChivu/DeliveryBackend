@@ -350,6 +350,14 @@ body {
   font-size: 20px;
 }
 
+.oras-city-restaurant {
+  margin-top: 200px;
+}
+
+.oras-city-recenzie {
+  margin-top: 240px;
+}
+
 .oras-nume-recenzie i {
   color: #ffd700;
 }
