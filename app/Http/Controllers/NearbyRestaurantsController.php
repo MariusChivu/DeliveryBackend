@@ -42,7 +42,8 @@ class NearbyRestaurantsController extends Controller
 				$array_name = "$star ".$rest[0][0]["name"];
 			}
 			
-			if($distance <= 5000999999999) {
+			// if($distance <= 5000999999999) {
+			if($distance <= 5000) {
 				$restaurant[$array_name] = [
 					"distance" => $distance,
 					"distance_name" => $distance_name,

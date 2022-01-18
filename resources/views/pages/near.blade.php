@@ -6,6 +6,7 @@
 				<div class='bara-header'>
 					<h1>Comandă de la unul din restaurentele din aproierea ta.</h1>
 					<h3>Restaurantele sunt ordonate după <strong>{{ $sort_name }}</strong>.</h3>
+					<h3><strong>{{ sizeOf($restaurant) }}</strong> restaurante în zona ta.</h3>
 					<a class='badge bg-success sort-button' href='/near/star' ><i class="fas fa-sort-alpha-down"></i></i> Ordonare după <i class='fas fa-star'></i> ranting</a>
 					<a class='badge bg-success sort-button' href='/near/distance' ><i class="fas fa-sort-alpha-down"></i></i> Ordonare după <i class="fas fa-ruler"></i> distanță</a>
 				</div>

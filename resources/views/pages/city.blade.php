@@ -6,6 +6,7 @@
 		<div class='col-lg-10'>
 			<div class='bara-header'>
 				<h1>Livrare de mâncare de la cele mai bune restaurante din orașul <strong>{{ $name }}</strong></h1>
+				<h3><strong>{{ sizeOf($restaurant) }}</strong> restaurante partenere în acest oraș.</h3>
 			</div>
 		</div>
 	</div>
