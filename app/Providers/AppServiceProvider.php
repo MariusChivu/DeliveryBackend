@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\View\View;
 use App\Models\Link;
@@ -40,5 +41,12 @@ class AppServiceProvider extends ServiceProvider
 			$contact = Contact::getContact()[0];
 			$contacts->with("contact", $contact);
 		});
+
+        view()->composer("*", function(View $login)
+		{
+			$isLogin = UserController::isLogin();
+			$login->with("isLogin", $isLogin);
+		});
+
     }
 }

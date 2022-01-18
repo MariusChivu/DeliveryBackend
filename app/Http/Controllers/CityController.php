@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\CityList;
 use App\Models\Restaurant;
-use App\Models\Link;
 
 class CityController extends Controller
 {
@@ -14,18 +13,10 @@ class CityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    static function showCityList()
     {
 		$citys = CityList::getCityList();
-		$popularRestaurant = Restaurant::popularRestaurantList();
-		$download = Link::getDownload();
-
-		return view("pages.main", 
-		compact(
-			"citys",
-			"popularRestaurant",
-			"download",
-		));
+		return $citys;
     }
 
     /**
