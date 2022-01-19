@@ -23,6 +23,11 @@ Route::get('/contact', function () {
 });
 Route::resource("city", CityController::class);
 Route::get("near/{sort}", [NearbyRestaurantsController::class, "index"]);
-Route::get("logout", [UserController::class, "logout"]);
 Route::get("restaurant/{name}/{city}/{id}", [RestaurantController::class, "index"]);
+
+Route::get("logout", [UserController::class, "logout"]);
+Route::get("/user", function () {
+    return view('user.panel');
+});
+Route::get("user/info", [UserController::class, "userPanelInfo"]);
 

@@ -28,7 +28,8 @@ class IndexController extends Controller
 
 	public function store(Request $request)
 	{
-		$login = UserController::login($request);
-		return Redirect::back()->withErrors(['msg' => $login]);
+		$msg = UserController::login($request);
+		$msg = UserController::register($request);
+		return Redirect::back()->withErrors(['msg' => $msg]);
 	}
 }

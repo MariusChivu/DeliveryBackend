@@ -21,7 +21,7 @@
 				@else
 					<li class='nav-item'>
 						<a class='nav-link' href='/user'>
-							<i class="fas fa-user-circle"></i>
+							<i class="fas fa-user-cog"></i>
 						</a>
 					</li>
 					<li class='nav-item'>
