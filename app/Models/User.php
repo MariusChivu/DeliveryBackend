@@ -30,7 +30,7 @@ class User extends Authenticatable
 	/**
 	 * check email
 	 */
-	private function _checkEmail($mail)
+	static function _checkEmail($mail)
 	{
 		$check = User::where("mail", $mail)
 		->get();
@@ -46,7 +46,7 @@ class User extends Authenticatable
 	/**
 	 * get hash password
 	 */
-	private function _getHashPass($mail)
+	static function _getHashPass($mail)
 	{
 		return User::select('password')
 			->where("mail", $mail)
@@ -56,7 +56,7 @@ class User extends Authenticatable
 	/**
 	 * check password
 	 */
-	private function _checkPassword($mail, $pass)
+	static function _checkPassword($mail, $pass)
 	{
 		return password_verify($pass, User::_getHashPass($mail));
 	}
@@ -64,7 +64,7 @@ class User extends Authenticatable
 	/**
 	 * check login
 	 */
-	private function _checkLogin($mail, $pass)
+	static function _checkLogin($mail, $pass)
 	{
 		if(User::_checkEmail($mail) && User::_checkPassword($mail, $pass)) {
 			$user = User::where("mail", $mail)
@@ -101,5 +101,22 @@ class User extends Authenticatable
 				return false;
 			}
 		}
+	}
+
+	/**
+	 * get user info
+	 */
+	static function getUserInfo($id)
+	{
+		$info = User::select(
+			"name",
+			"mail",
+			"phone",
+			"register",
+		)
+		->where("id", $id)
+		->get()[0];
+
+		return $info;
 	}
 }

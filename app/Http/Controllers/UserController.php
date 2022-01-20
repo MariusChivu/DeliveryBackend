@@ -17,15 +17,7 @@ class UserController extends Controller
 		if(isset($_POST['login'])) {
 			$mail = $request->email;
 			$pass = $request->password;
-			// 	if($count == 1 && $err == 0) {
-			// 		Session::put("user", [
-			// 			"id" => $user->id,
-			// 			"name" => $user->name,
-			// 			"mail" => $user->mail,
-			// 			"phone" => $user->phone,
-			// 			"admin" => $user->admin,
-			// 			"type" => $user->type
-			// 		]);
+			
 			if(User::setLogin($mail, $pass)) {
 				return true;
 			} else {
@@ -69,7 +61,9 @@ class UserController extends Controller
 	 */
 	static function userPanelInfo()
 	{
-		$user = "asfasfas";
+		$user = User::getUserInfo(UserController::userId());
+		$user["register"] = strtotime($user["register"]);
+		$user["register"] = date("d-m-Y H:i", $user["register"]);
 
 		return view("user.info", compact([
 			"user",
