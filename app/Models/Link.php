@@ -14,7 +14,7 @@ class Link extends Model
 	 */
 	static function getSocial()
 	{
-		$social = Link::where("type", "social")
+		$social = self::where("type", "social")
 		->get();
 		
 		return $social;
@@ -24,7 +24,7 @@ class Link extends Model
 	 */
 	static function getDownload()
 	{
-		$download = Link::where("type", "download")
+		$download = self::where("type", "download")
 		->get();
 		
 		return $download;

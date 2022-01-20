@@ -11,7 +11,9 @@ use App\Models\RestaurantCity;
 
 class RestaurantController extends Controller
 {
-    //
+	/**
+	 * Create Restaurant page
+	 */
 	public function index($name, $city, $id)
 	{
 		$imgFolder = Restaurant::getRestImg($name);
@@ -27,6 +29,11 @@ class RestaurantController extends Controller
 		for ($i=0; $i < sizeOf($categoryMenu); $i++) { 
 			array_push($categoryProduct, RestaurantCategory::getCategoryProduct($categoryMenu[$i][0], $id));
 		}
+
+		$cartBtn = 0;
+		if(isset($_COOKIE["position"])) {
+			$cartBtn = 1;
+		}
 	
 		return view("pages.restaurant", 
 		compact(
@@ -36,6 +43,7 @@ class RestaurantController extends Controller
 			"imgFolder", 
 			"reviews",
 			"coords",
+			"cartBtn",
 		));
 	}
 }

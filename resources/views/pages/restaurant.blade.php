@@ -26,9 +26,7 @@
 						</span>
 						<span class='d-inline badge bg-success pointer ms-2 p-2'>
 							<a href='http://www.google.com/maps/place/{{ $coords }}' target="_blank"><i class="fas fa-map-marked-alt"></i></a>
-						</span>
-						
-						
+						</span>		
 					</div>
 				</div>
 			</div>
@@ -59,10 +57,23 @@
 											<div class="produs-text">
 												<h4>{{ $items[$i]->name }}</h4>
 												<p>{{ $items[$i]->text }}</p>
-												<p class="pret"> {{ $items[$i]->price }} RON</p>
-												<p class="locationInfo">
-													<i class="fas fa-map-marker-alt"></i>Avem nevoie de locația ta pentru a putea comanda.
+												<p class="pret">
+													@if ($cartBtn == 1)
+														<form action="" method="POST" class='d-flex flex-row align-items-center'> {{ csrf_field() }}
+															<input name='img' type='hidden' value='img/restaurante/{{ $imgFolder }}/{{ $items[$i]->img }}.webp'>
+															<input name='title' type='hidden' value='{{ $items[$i]->name }}'>
+															<input name='price' type='hidden' value='{{ $items[$i]->price }}'>
+															<i type='submit' name='addCart' class='fas fa-cart-plus pointer'></i>
+														</form>
+													@endif
+													<strong>{{ $items[$i]->price }} RON</strong>
 												</p>
+
+												@if ($cartBtn == 0)
+													<p class="locationInfo">
+														<i class="fas fa-map-marker-alt"></i>Avem nevoie de locația ta pentru a putea comanda.
+													</p>
+												@endif
 											</div>
 											<div class="produs-img">
 												<img src="{{ asset("img/restaurante/".$imgFolder."/".$items[$i]->img.".webp") }}" alt="{{ $items[$i]->name }}" width="150px">

@@ -15,7 +15,7 @@ class RestaurantCategory extends Model
 	 */
 	static function createCategoryMenu($id)
 	{
-		$categories = RestaurantCategory::where("rest_id", $id)
+		$categories = self::where("rest_id", $id)
 		->orderBy("id")
 		->get();
 		$categories = json_decode($categories);

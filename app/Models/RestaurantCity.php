@@ -17,7 +17,7 @@ class RestaurantCity extends Model
 	 */
 	static function getRestaurantCoords($rest_id, $city_id)
 	{
-		$coords = RestaurantCity::where("rest_id", $rest_id)
+		$coords = self::where("rest_id", $rest_id)
 		->where("city_id", $city_id)
 		->get();
 		$coords = json_decode($coords);
@@ -31,7 +31,7 @@ class RestaurantCity extends Model
 	 */
 	static function getRestaurantListNearby()
 	{
-		$restaurant = RestaurantCity::get();
+		$restaurant = self::get();
 
 		return $restaurant;
 	} 

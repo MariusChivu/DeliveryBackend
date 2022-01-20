@@ -15,10 +15,10 @@ class Restaurant extends Model
 	 */
 	static function restaurantList($name)
 	{
-		$restLists = Restaurant::_getRestaurantList($name);	
+		$restLists = self::_getRestaurantList($name);	
 		$restaurant = [];
 		foreach($restLists as $rest) {
-			$rests = json_decode(Restaurant::where("id", $rest["rest_id"])->get(), true);
+			$rests = json_decode(self::where("id", $rest["rest_id"])->get(), true);
 			$star = Reviews::avgStars($rests[0]['id']);
 			$rests[0]['star'] = $star;
 			$restaurant["".$star."-".$rests[0]['name']] = $rests;
@@ -33,7 +33,7 @@ class Restaurant extends Model
 	 */
 	static function nearbyRestaurantList($id)
 	{
-		$rest = Restaurant::where("id", $id)
+		$rest = self::where("id", $id)
 		->get();
 
 		return $rest;
@@ -44,7 +44,7 @@ class Restaurant extends Model
 	 */
 	private function getId($name)
 	{
-		$id = Restaurant::where("name", $name)->get();
+		$id = self::where("name", $name)->get();
 		$id = json_decode($id);
 		$id = $id[0]->id;
 
@@ -56,7 +56,7 @@ class Restaurant extends Model
 	 */
 	static function getRestImg($name)
 	{
-		$img = Restaurant::where("name", $name)->get();
+		$img = self::where("name", $name)->get();
 		$img = json_decode($img);
 		$img = $img[0]->img;
 
@@ -80,7 +80,7 @@ class Restaurant extends Model
 	 */
 	static function popularRestaurantList()
 	{
-		$restLists = Restaurant::take(13)
+		$restLists = self::take(13)
 		->get();
 		$restaurant = [];
 		foreach($restLists as $rest) {

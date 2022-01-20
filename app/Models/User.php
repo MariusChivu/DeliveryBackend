@@ -19,7 +19,7 @@ class User extends Authenticatable
 	 */
 	static function setLogin($mail, $pass)
 	{
-		if(User::_checkLogin($mail, $pass))
+		if(self::_checkLogin($mail, $pass))
 		{
 			return true;
 		} else {
@@ -30,9 +30,9 @@ class User extends Authenticatable
 	/**
 	 * check email
 	 */
-	static function _checkEmail($mail)
+	private function _checkEmail($mail)
 	{
-		$check = User::where("mail", $mail)
+		$check = self::where("mail", $mail)
 		->get();
 		$size = sizeOf($check);
 
@@ -46,9 +46,9 @@ class User extends Authenticatable
 	/**
 	 * get hash password
 	 */
-	static function _getHashPass($mail)
+	private function _getHashPass($mail)
 	{
-		return User::select('password')
+		return self::select('password')
 			->where("mail", $mail)
 			->get()[0]->password;
 	}
@@ -56,19 +56,19 @@ class User extends Authenticatable
 	/**
 	 * check password
 	 */
-	static function _checkPassword($mail, $pass)
+	private function _checkPassword($mail, $pass)
 	{
-		return password_verify($pass, User::_getHashPass($mail));
+		return password_verify($pass, self::_getHashPass($mail));
 	}
 
 	/**
 	 * check login
 	 */
-	static function _checkLogin($mail, $pass)
+	private function _checkLogin($mail, $pass)
 	{
-		if(User::_checkEmail($mail) && User::_checkPassword($mail, $pass)) {
-			$user = User::where("mail", $mail)
-			->where("password", User::_getHashPass($mail))
+		if(self::_checkEmail($mail) && self::_checkPassword($mail, $pass)) {
+			$user = self::where("mail", $mail)
+			->where("password", self::_getHashPass($mail))
 			->get();
 			$user = $user[0];
 			Session::put("user", [
@@ -85,11 +85,11 @@ class User extends Authenticatable
 	 */
 	static function setRegister($data)
 	{
-		if(User::_checkEmail($data["mail"]))
+		if(self::_checkEmail($data["mail"]))
 		{
 			return false;
 		} else {
-			$create = User::insert([
+			$create = self::insert([
 				'name' => $data["name"],
 				'mail' => $data["mail"],
 				'password' => Hash::make($data["password"]),
@@ -108,7 +108,7 @@ class User extends Authenticatable
 	 */
 	static function getUserInfo($id)
 	{
-		$info = User::select(
+		$info = self::select(
 			"name",
 			"mail",
 			"phone",

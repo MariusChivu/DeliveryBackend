@@ -15,7 +15,7 @@ class Reviews extends Model
 	 */
 	static function avgStars($rest_id)
 	{
-		$stars = Reviews::where("rest_id", $rest_id)
+		$stars = self::where("rest_id", $rest_id)
 		->avg('star');
 		$stars = round($stars, 1);
 		
@@ -27,7 +27,7 @@ class Reviews extends Model
 	 */
 	static function getReviews($rest_id)
 	{
-		$reviews = Reviews::where("rest_id", $rest_id)
+		$reviews = self::where("rest_id", $rest_id)
 		->get();
 
 		return $reviews;

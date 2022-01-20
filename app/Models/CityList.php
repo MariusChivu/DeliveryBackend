@@ -14,7 +14,7 @@ class CityList extends Model
 	 */
 	static function getCityId($name)
 	{	
-        $id = CityList::where("name", $name)
+        $id = self::where("name", $name)
 		->get();
 		$id = json_decode($id);
 		$id = $id[0]->id;
@@ -27,7 +27,7 @@ class CityList extends Model
 	 */
 	static function getCityList()
 	{
-		$citys = CityList::get();
+		$citys = self::get();
 		$citys = json_decode($citys);
 		
 		return $citys;
@@ -38,7 +38,7 @@ class CityList extends Model
 	 */
 	static function getCityName($id)
 	{
-		$name = CityList::where("id", $id)
+		$name = self::where("id", $id)
 		->get();
 		$name = json_decode($name);
 		$name = $name[0]->name;
