@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource("/", IndexController::class);
-Route::get('/contact', function () {
+Route::get('contact', function () {
     return view('pages.contact');
 });
 Route::resource("city", CityController::class);
@@ -26,7 +26,7 @@ Route::get("near/{sort}", [NearbyRestaurantsController::class, "index"]);
 Route::get("restaurant/{name}/{city}/{id}", [RestaurantController::class, "index"]);
 
 Route::get("logout", [UserController::class, "logout"]);
-Route::get("/user", function () {
+Route::get("user", function () {
     return view('user.panel');
 });
 Route::get("user/info", [UserController::class, "userPanelInfo"]);

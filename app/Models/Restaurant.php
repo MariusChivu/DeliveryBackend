@@ -94,16 +94,4 @@ class Restaurant extends Model
 		
 		return($restaurant);
 	}
-
-	/**
-	 * TO DOO !!!!	
-	 * Sort restaurant list
-	 */
-	private function _sortRestaurantList($list, $sort)
-	{
-		switch($sort) {
-			case "star":
-				break;
-		}
-	}
 }

@@ -8,6 +8,9 @@ use App\Models\Reviews;
 use App\Models\Restaurant;
 use App\Models\RestaurantCategory;
 use App\Models\RestaurantCity;
+use Illuminate\Support\Facades\Redirect;
+use App\Http\Controllers\CartController;
+use Illuminate\Support\Facades\Session;
 
 class RestaurantController extends Controller
 {
@@ -34,7 +37,7 @@ class RestaurantController extends Controller
 		if(isset($_COOKIE["position"])) {
 			$cartBtn = 1;
 		}
-	
+	$ses = Session::get("cart");
 		return view("pages.restaurant", 
 		compact(
 			"array", 
@@ -44,7 +47,17 @@ class RestaurantController extends Controller
 			"reviews",
 			"coords",
 			"cartBtn",
+			"ses",
 		));
+	}
+
+	/**
+	 * get $_POST
+	 */
+	public function store(Request $request)
+	{
+		$msg = CartController::addItem($request);
+		return Redirect::back()->withErrors(['msg' => $msg]);
 	}
 }
 

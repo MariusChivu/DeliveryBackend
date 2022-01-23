@@ -1,5 +1,7 @@
+
 @extends('index')
 @section('content')
+
 	<div id='noArray'>
 		<div id='scroll-to-fix-menu'>
 			<div class='containter-fluid restaurant-banner'>
@@ -57,17 +59,18 @@
 											<div class="produs-text">
 												<h4>{{ $items[$i]->name }}</h4>
 												<p>{{ $items[$i]->text }}</p>
-												<p class="pret">
+												<div class="pret" >
 													@if ($cartBtn == 1)
-														<form action="" method="POST" class='d-flex flex-row align-items-center'> {{ csrf_field() }}
+														<form action="{{ route("index") }}" method="POST" > {{ csrf_field() }}
+															<input name='restaurant' type='hidden' value='{{ $array[1] }}'>
 															<input name='img' type='hidden' value='img/restaurante/{{ $imgFolder }}/{{ $items[$i]->img }}.webp'>
 															<input name='title' type='hidden' value='{{ $items[$i]->name }}'>
 															<input name='price' type='hidden' value='{{ $items[$i]->price }}'>
-															<i type='submit' name='addCart' class='fas fa-cart-plus pointer'></i>
+															<button type='submit' name='addCart' class='btn'><i class='fas fa-cart-plus pointer'></i></button>
 														</form>
 													@endif
-													<strong>{{ $items[$i]->price }} RON</strong>
-												</p>
+													{{ $items[$i]->price }} RON
+												</div>
 
 												@if ($cartBtn == 0)
 													<p class="locationInfo">
