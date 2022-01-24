@@ -115,6 +115,7 @@ class User extends Authenticatable
 			"mail",
 			"phone",
 			"register",
+			"updated_at",
 		)
 		->where("id", $id)
 		->get()[0];

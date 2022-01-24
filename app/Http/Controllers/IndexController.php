@@ -38,6 +38,8 @@ class IndexController extends Controller
 	{
 		$msg = UserController::login($request);
 		$msg .= UserController::register($request);
+		$msg .= UserController::updateInfo($request);
+
 		$msg .= CartController::addItem($request);
 		$msg .= CartController::deleteCartItem($request);
 		$msg .= CartController::resetCart();

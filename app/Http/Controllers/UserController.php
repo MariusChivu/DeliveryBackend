@@ -122,4 +122,26 @@ class UserController extends Controller
 			"items",
 		]));
 	}
+
+	/**
+	 * Update user info
+	 */
+	static function updateInfo(Request $request)
+	{
+		if(isset($_POST['updateInfo'])) {
+			$mail = User::getUserInfo(self::userId())->mail;
+			$update = User::where('mail', $mail)
+			->update(array(
+				'name' => $request->name,
+				'mail' => $request->mail,
+				'phone' => $request->phone,
+			));
+
+			if($update) {
+				return "update_info_success";
+			} else {
+				return "update_info_error";
+			}
+		}
+	}
 }
