@@ -8,16 +8,16 @@
 			@else				
 				<a href="/user/info" class='col-md-4 border  border-dark m-3 p-3 pointer'>
 					<h2><i class="fas fa-user-edit"></i> Informații cont</h2>
-					<p>Gestionează informaâiile despre cont.</p>
+					<p>Gestionează Informațiile despre cont.</p>
 				</a>
 				<div class='col-md-4 border  border-dark m-3 p-3 pointer'>
 					<h2><i class="fas fa-user-cog"></i> Setari cont</h2>
 					<p>Gestionează setările despre contului.</p>
 				</div>
-				<div class='col-md-4 border  border-dark m-3 p-3 pointer'>
+				<a href="/user/orders" class='col-md-4 border  border-dark m-3 p-3 pointer'>
 					<h2><i class="fas fa-receipt"></i> Comenzile mele</h2>
 					<p>Istoricul comenzilor.</p>
-				</div>
+				</a>
 				<div class='col-md-4 border  border-dark m-3 p-3 pointer'>
 					<h2><i class="fas fa-map-marked"></i> Adresele mele</h2>
 					<p>Salvează o adresă pentru livrare.</p>

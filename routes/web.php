@@ -30,4 +30,6 @@ Route::get("user", function () {
     return view('user.panel');
 });
 Route::get("user/info", [UserController::class, "userPanelInfo"]);
+Route::get("user/orders", [UserController::class, "userOrders"]);
+Route::get("user/orders/items/{id}", [UserController::class, "userOrderItems"]);
 

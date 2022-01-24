@@ -42,7 +42,7 @@ class Restaurant extends Model
 	/**
 	 * get restaurant id
 	 */
-	private function getId($name)
+	static function getId($name)
 	{
 		$id = self::where("name", $name)->get();
 		$id = json_decode($id);

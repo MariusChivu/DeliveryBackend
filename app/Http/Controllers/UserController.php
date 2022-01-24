@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CartDetails;
+use App\Models\CartItems;
+use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Session;
@@ -90,5 +93,33 @@ class UserController extends Controller
 	static function userId()
 	{
 		return Session::get("user")["id"];
+	}
+
+	/**
+	 * Get user orders
+	 */
+	static function userOrders()
+	{
+		$order = CartDetails::getOrderDetails();
+
+		foreach($order as $item) {
+			$item["rest_img"] = Restaurant::getRestImg($item["restaurant"]);
+		}
+
+		return view("user.orders", compact([
+			"order",
+		]));
+	}
+
+	/**
+	 * Get order items
+	 */
+	static function userOrderItems($id)
+	{
+		$items = CartItems::getUserOrderItems($id);
+
+		return view("user.items", compact([
+			"items",
+		]));
 	}
 }

@@ -50,14 +50,5 @@ class RestaurantController extends Controller
 			"ses",
 		));
 	}
-
-	/**
-	 * get $_POST
-	 */
-	public function store(Request $request)
-	{
-		$msg = CartController::addItem($request);
-		return Redirect::back()->withErrors(['msg' => $msg]);
-	}
 }
 
