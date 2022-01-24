@@ -86,7 +86,7 @@ class CartController extends Controller
 	{
 		if(isset($_POST['finalCart'])) {
 			if(UserController::isLogin()) {
-				$token = md5( date('d/m/Y h:i:s', time() . "-" . rand(0,999999) ));
+				$token = md5( date('d/m/Y h:i:s', time()) . "-" . rand(0,999999) );
 
 				$data_details = [
 					"user_id" => UserController::userId(),

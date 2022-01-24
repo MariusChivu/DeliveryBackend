@@ -39,4 +39,24 @@ class RestaurantCategory extends Model
 
 		return $categories;
 	}
+
+	/**
+	 * Get popular product
+	 */
+	static function getPopularProduct($restId)
+	{
+		$popularProduct = CartItems::selectPopularProducts($restId);
+
+		foreach($popularProduct as $item) {
+			$info = RestaurantProduct::getProductInfo($item["id_prod"]);
+			$item["rest_id"] = $info->rest_id;
+			$item["cat_id"] = 0;
+			$item["name"] = $info->name;
+			$item["text"] = $info->text;
+			$item["price"] = $info->price;
+			$item["img"] = $info->img;
+		}
+
+		return $popularProduct;
+	}
 }

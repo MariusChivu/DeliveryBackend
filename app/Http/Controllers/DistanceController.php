@@ -11,7 +11,11 @@ class DistanceController extends Controller
 	 */
 	static function calculateDistance($coords)
 	{
-		$myLocation = explode(",", $_COOKIE["position"]);
+		if(!isset($_COOKIE["position"])) {	
+			$myLocation = "0,0";
+		} else {
+			$myLocation = explode(",", $_COOKIE["position"]);
+		}
 		$restCoords = explode(",", $coords);
 		$myLat = deg2rad($myLocation[0]);
 		$myLong = deg2rad($myLocation[1]);

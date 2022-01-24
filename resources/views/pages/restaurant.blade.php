@@ -35,6 +35,9 @@
 
 		<div class='container-fluid  restaurant-meniu glass-bg2 mt-5 mb-5 p-2' id='meniu'>
 			<ul class="nav" id="meniu-item">
+				<li class="nav-item">
+					<a class="nav-link" id="active" href='#id0'><i class="fas fa-fire-alt"></i> Popular</a>
+				</li>
 				@foreach($categoryMenu as $item)
 					<li class="nav-item">
 						<a class="nav-link" id="active" href='#id{{ $item[0] }}'>{{ $item[1] }}</a>
@@ -47,6 +50,43 @@
 
 		<div class='container restaurant-categorie'>
 			<div class='row' id='restaurant-categorie'>
+					<div id="id0" class="pt-5 mb-5">
+						<h1 class="mt-5 d-flex align-items-center"><i class="fas fa-fire-alt"></i> Popular</h1>
+						<ul class="list-group list-group-horizontal row d-flex justify-content-between">
+							@foreach ($popularProduct as $items)
+							
+								<li class="list-group-item col-md-5 m-2 mb-5 p-3 border border-dark d-flex justify-content-between align-items-center produs">
+									<div class="produs-text">
+										<h4>{{ $items->name }}</h4>
+										<p>{{ $items->text }}</p>
+										<div class="pret align-items-baseline" >
+											@if ($cartBtn == 1)
+												<form action="{{ route("index") }}" method="POST" > {{ csrf_field() }}
+													{{-- <input name='restaurant' type='hidden' value='{{ $array[1] }}'> --}}
+													<input name='img' type='hidden' value='img/restaurante/{{ $imgFolder }}/{{ $items->img }}.webp'>
+													<input name='id' type='hidden' value='{{ $items->id }}'>
+													<input name='title' type='hidden' value='{{ $items->name }}'>
+													<input name='price' type='hidden' value='{{ $items->price }}'>
+													<button type='submit' name='addCart' class='btn'><i class='fas fa-cart-plus pointer'></i></button>
+												</form>
+											@endif
+											{{ $items->price }} RON
+										</div>
+
+										@if ($cartBtn == 0)
+											<p class="locationInfo">
+												<i class="fas fa-map-marker-alt"></i>Avem nevoie de locația ta pentru a putea comanda.
+											</p>
+										@endif
+									</div>
+									<div class="produs-img">
+										<img src="{{ asset("img/restaurante/".$imgFolder."/".$items->img.".webp") }}" alt="{{ $items->name }}" width="150px">
+									</div>
+								</li>
+							@endforeach
+						</ul>
+					</div>
+
 				@foreach($categoryMenu as $item)
 					<div id="id{{ $item[0] }}" class="pt-5 mb-5">
 						<h1 class="mt-5 d-flex align-items-center">{{ $item[1] }}</h1>
@@ -87,7 +127,7 @@
 							@endforeach
 						</ul>
 					</div>
-					@endforeach
+				@endforeach
 			</div>
 		</div>
 	</div>

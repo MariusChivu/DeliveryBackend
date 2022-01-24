@@ -8,9 +8,7 @@ use App\Models\Reviews;
 use App\Models\Restaurant;
 use App\Models\RestaurantCategory;
 use App\Models\RestaurantCity;
-use Illuminate\Support\Facades\Redirect;
-use App\Http\Controllers\CartController;
-use Illuminate\Support\Facades\Session;
+use App\Models\CartItems;
 
 class RestaurantController extends Controller
 {
@@ -28,6 +26,7 @@ class RestaurantController extends Controller
 
 		$cityId = CityList::getCityId($city);
 		$coords = RestaurantCity::getRestaurantCoords($id, $cityId);
+		$distance = DistanceController::calculateDistance($coords);
 
 		for ($i=0; $i < sizeOf($categoryMenu); $i++) { 
 			array_push($categoryProduct, RestaurantCategory::getCategoryProduct($categoryMenu[$i][0], $id));
@@ -37,7 +36,9 @@ class RestaurantController extends Controller
 		if(isset($_COOKIE["position"])) {
 			$cartBtn = 1;
 		}
-	$ses = Session::get("cart");
+
+		$popularProduct = RestaurantCategory::getPopularProduct($id);
+
 		return view("pages.restaurant", 
 		compact(
 			"array", 
@@ -47,7 +48,8 @@ class RestaurantController extends Controller
 			"reviews",
 			"coords",
 			"cartBtn",
-			"ses",
+			"popularProduct",
+			"distance",
 		));
 	}
 }

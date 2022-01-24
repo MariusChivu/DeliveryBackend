@@ -38,4 +38,19 @@ class CartItems extends Model
 
 		return $items;
 	}
+
+	/**
+	 * Select Popular products
+	 */
+	static function selectPopularProducts($restId)
+	{
+		$popularProduct = self::groupBy('id_prod', 'name')
+		->where('id_rest', $restId)
+		->selectRaw("SUM(cant) as cant, `name`, `id_prod`")
+		->orderBy('cant' , 'desc')
+		->limit(4)
+		->get();
+		
+		return $popularProduct;
+	}
 }
