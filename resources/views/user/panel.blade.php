@@ -10,10 +10,6 @@
 					<h2><i class="fas fa-user-edit"></i> Informații cont</h2>
 					<p>Gestionează Informațiile despre cont.</p>
 				</a>
-				{{-- <div class='col-md-4 border  border-dark m-3 p-3 pointer'>
-					<h2><i class="fas fa-user-cog"></i> Setari cont</h2>
-					<p>Gestionează setările despre contului.</p>
-				</div> --}}
 				<a href="/user/orders" class='col-md-4 border  border-dark m-3 p-3 pointer'>
 					<h2><i class="fas fa-receipt"></i> Comenzile mele</h2>
 					<p>Istoricul comenzilor.</p>
@@ -22,14 +18,6 @@
 					<h2><i class="fas fa-credit-card"></i> Metode de plată</h2>
 					<p>Modifică metodele tale de plată.</p>
 				</a>
-				<div class='col-md-4 border  border-dark m-3 p-3 pointer'>
-					<h2><i class="fas fa-ticket-alt"></i> Vouchere</h2>
-					<p>Adaugă un voucher de reducere.</p>
-				</div>
-				<div class='col-md-4 border  border-dark m-3 p-3 pointer'>
-					<h2><i class="fas fa-gift"></i> Invită</h2>
-					<p>Invită-ți prietenii și primești un voucher de reducere cadou.</p>
-				</div>
 				<a href="/logout" class='col-md-4 border  border-dark m-3 p-3 pointer'>
 					<h2><i class="fas fa-sign-out-alt"></i> Deconectare</h2>
 					<p>Deconectare de la cont.</p>
