@@ -18,10 +18,10 @@
 					<h2><i class="fas fa-receipt"></i> Comenzile mele</h2>
 					<p>Istoricul comenzilor.</p>
 				</a>
-				<div class='col-md-4 border  border-dark m-3 p-3 pointer'>
+				<a href="/user/payment" class='col-md-4 border  border-dark m-3 p-3 pointer'>
 					<h2><i class="fas fa-credit-card"></i> Metode de plată</h2>
 					<p>Modifică metodele tale de plată.</p>
-				</div>
+				</a>
 				<div class='col-md-4 border  border-dark m-3 p-3 pointer'>
 					<h2><i class="fas fa-ticket-alt"></i> Vouchere</h2>
 					<p>Adaugă un voucher de reducere.</p>

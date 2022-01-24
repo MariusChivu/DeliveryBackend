@@ -5,6 +5,7 @@ use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\NearbyRestaurantsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\PaymentController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -32,4 +33,6 @@ Route::get("user", function () {
 Route::get("user/info", [UserController::class, "userPanelInfo"]);
 Route::get("user/orders", [UserController::class, "userOrders"]);
 Route::get("user/orders/items/{id}", [UserController::class, "userOrderItems"]);
+Route::get("user/payment", [UserController::class, "paymentMethodsPage"]);
+Route::get("user/payment/update/{id}", [PaymentController::class, "updatePaymentPage"]);
 

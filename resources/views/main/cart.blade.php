@@ -73,11 +73,13 @@
 				@endif
 			</div>
 			<div class="modal-footer">
-				<form action="{{ route("index") }}" method="POST" > {{ csrf_field() }}
-					<button type="submit" name='finalCart' class="btn btn-success">Finalizare comandă</button>
-					<button type="submit" name='resetCart' class="btn btn-warning">Resetare coș</button>
-					<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Închide</button>
-				</form>
+				@if (Cart::content()->count() > 0)
+					<form action="{{ route("index") }}" method="POST" > {{ csrf_field() }}
+						<button type="submit" name='finalCart' class="btn btn-success">Finalizare comandă</button>
+						<button type="submit" name='resetCart' class="btn btn-warning">Resetare coș</button>
+					</form>
+				@endif
+				<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Închide</button>
 			</div>
 		</div>
 	</div>

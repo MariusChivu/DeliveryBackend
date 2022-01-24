@@ -44,6 +44,10 @@ class IndexController extends Controller
 		$msg .= CartController::deleteCartItem($request);
 		$msg .= CartController::resetCart();
 		$msg .= CartController::storeCart();
+
+		$msg .= PaymentController::addCard($request);
+		$msg .= PaymentController::deleteCard($request);
+		$msg .= PaymentController::updateCard($request);
 		
 		return Redirect::back()->withErrors(['msg' => $msg]);
 	}

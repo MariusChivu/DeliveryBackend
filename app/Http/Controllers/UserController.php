@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CartDetails;
 use App\Models\CartItems;
+use App\Models\PaymentMethod;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -143,5 +144,17 @@ class UserController extends Controller
 				return "update_info_error";
 			}
 		}
+	}
+
+	/**
+	 * Set Payment Methods page
+	 */
+	static function paymentMethodsPage()
+	{
+		$method = PaymentMethod::getPaymentMethod(self::userId());
+		
+		return view("user.payment", compact([
+			"method",
+		]));
 	}
 }
