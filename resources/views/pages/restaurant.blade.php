@@ -150,7 +150,6 @@
 				<div class="modal-body">
 					<ul class="list-group list-group-horizontal row d-flex justify-content-center">
 						@foreach ($reviews as $item)
-					
 							<li class="list-group-item col-md-11 m-2 mb-5 p-3 border border-dark d-flex justify-content-center align-items-center produs">
 								<div class="produs-text">
 									<h4>
@@ -163,6 +162,27 @@
 								</div>
 							</li>
 						@endforeach
+
+						@if ($login == true)
+							<form action="{{ route("index") }}" method="POST"> {{ csrf_field() }}
+								<div class="form-floating p-2">
+									<textarea name='text' class="form-control" id="floatingTextarea2" style="height: 100px" required></textarea>
+									<label for="floatingTextarea2">Adaugă o recenzie</label>
+								</div>
+								<select name='star' class="form-select form-select-sm m-2" aria-label=".form-select-sm example" required>
+									<option selected>Selectează numărul de steluțe</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+								  </select>
+								  <input type='hidden' name='rest_id' value='{{ $array[4] }}'>
+								<button type='submit' name='addReview' class='btn btn-warning'>Adaugă</button>
+							</form>
+						@else 
+							<div class='alert alert-info text-center'>Trebuie să te conectezi pentru a putea adăuga o recenzie.</div>
+						@endif
 					</ul>
 				</div>
 				<div class="modal-footer">

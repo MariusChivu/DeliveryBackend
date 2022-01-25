@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CartController;
 use App\Models\Restaurant;
 use App\Models\Link;
+use App\Models\Reviews;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
@@ -48,6 +49,8 @@ class IndexController extends Controller
 		$msg .= PaymentController::addCard($request);
 		$msg .= PaymentController::deleteCard($request);
 		$msg .= PaymentController::updateCard($request);
+
+		$msg .= Reviews::addReview($request);
 		
 		return Redirect::back()->withErrors(['msg' => $msg]);
 	}

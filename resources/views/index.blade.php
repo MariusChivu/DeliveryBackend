@@ -30,5 +30,6 @@
 	
 	@include("main.userModal")
 	@include("main.cart")
+	@include("main.reviewAdd")
 	
 </html>
