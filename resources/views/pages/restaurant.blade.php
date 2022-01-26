@@ -62,9 +62,9 @@
 										<div class="pret align-items-baseline" >
 											@if ($cartBtn == 1)
 												<form action="{{ route("index") }}" method="POST" > {{ csrf_field() }}
-													{{-- <input name='restaurant' type='hidden' value='{{ $array[1] }}'> --}}
+													<input name='restaurant' type='hidden' value='{{ $array[1] }}'>
 													<input name='img' type='hidden' value='img/restaurante/{{ $imgFolder }}/{{ $items->img }}.webp'>
-													<input name='id' type='hidden' value='{{ $items->id }}'>
+													<input name='id' type='hidden' value='{{ $items->id_prod }}'>
 													<input name='title' type='hidden' value='{{ $items->name }}'>
 													<input name='price' type='hidden' value='{{ $items->price }}'>
 													<button type='submit' name='addCart' class='btn'><i class='fas fa-cart-plus pointer'></i></button>
