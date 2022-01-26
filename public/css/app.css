@@ -574,6 +574,7 @@ body {
 }
 
 .order-items {
+  background-image: url(/images/order-bg.jpg?71655c4e341a274bbf3ecbb8aa498887);
   background-repeat: no-repeat;
   border-radius: 10px;
   overflow: hidden;
@@ -589,7 +590,7 @@ body {
 }
 
 .order-items-white {
-  background-color: rgba(64, 64, 64, 0.48);
+  background-color: rgba(0, 0, 0, 0.48);
   width: 100%;
   height: 100%;
   margin: 0;
@@ -622,4 +623,13 @@ body {
 
 .input-card {
   max-width: 80px;
+}
+
+.edit-restaurant-img {
+  height: 100px;
+  display: inline;
+}
+
+.product-textarea {
+  height: 100px;
 }

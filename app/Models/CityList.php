@@ -27,7 +27,8 @@ class CityList extends Model
 	 */
 	static function getCityList()
 	{
-		$citys = self::get();
+		$citys = self::orderBy("name", "ASC")
+		->get();
 		$citys = json_decode($citys);
 		
 		return $citys;

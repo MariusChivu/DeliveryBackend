@@ -38,4 +38,15 @@ class CartDetails extends Model
 
 		return $order;
 	}
+
+	/**
+	 * Count restaurant orders
+	 */
+	static function countOrders($rest_name)
+	{
+		$count = self::where("restaurant", $rest_name)
+		->count();
+
+		return $count;
+	}
 }

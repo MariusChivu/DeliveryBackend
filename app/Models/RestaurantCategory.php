@@ -59,4 +59,76 @@ class RestaurantCategory extends Model
 
 		return $popularProduct;
 	}
+
+	/**
+	 * Count restaurant category
+	 */
+	static function countCategory($rest_id)
+	{
+		$count = self::where("rest_id", $rest_id)
+		->count();
+
+		return $count;
+	}
+
+	/**
+	 * Get category name
+	 */
+	static function getCategoryName($id)
+	{
+		$name = self::select("name")
+		->where("id", $id)
+		->first()->name;
+		
+		return $name;
+	}
+
+	/**
+	 * Restaurant Category list for owner
+	 */
+	static function getCategoryListRestaurant($id)
+	{
+		$list = self::where("rest_id", $id)
+		->get();
+		
+		return $list;
+	}
+
+	/**
+	 * Add new category
+	 */
+	static function addCategory($data)
+	{
+		$insert = self::insert([
+			"rest_id" => $data["rest_id"],
+			"name" => $data["name"],
+		]);
+
+		return $insert;
+	}
+
+	/**
+	 * Delete category
+	 */
+	static function deleteRestaurantCategory($id)
+	{
+		$delete = self::where("id", $id)
+		->delete();
+
+		return $delete;
+	}
+
+	/**
+	 * Update category
+	 */
+	static function updateRestaurantCategory($data)
+	{
+		$update = self::where("id", $data['id'])
+		->where("rest_id", $data['rest_id'])
+		->update([
+			"name" => $data["name"],
+		]);
+
+		return $update;
+	}
 }

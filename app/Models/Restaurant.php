@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Controllers\UserController;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Reviews;
@@ -65,6 +66,19 @@ class Restaurant extends Model
 	}
 
 	/**
+	 * Get restaurant images folder by id
+	 */
+	static function getRestImgId($id)
+	{
+		$img = self::where("id", $id)->get();
+		$img = json_decode($img);
+		$img = $img[0]->img;
+
+		return $img;
+		
+	}
+
+	/**
 	 * get restaurant list
 	 */
 	private function _getRestaurantList($name)
@@ -93,5 +107,56 @@ class Restaurant extends Model
 		krsort($restaurant);
 		
 		return($restaurant);
+	}
+
+	/**
+	 * Get restaurants by owner id
+	 */
+	static function getOwnerRestaurant($id)
+	{
+		$list = self::where("owner_id", $id)
+		->get();
+
+		return $list;
+	}
+
+	/**
+	 * Add new restaurant
+	 */
+	static function newRestaurant($data)
+	{
+		$inser = self::insert([
+			"owner_id" => $data['owner_id'],
+			"name" => $data['name'],
+			"img" => $data['img'],
+		]);
+
+		return true;
+	}
+
+	/**
+	 * Get restaurant info
+	 */
+	static function getRestaurantInfo($id)
+	{
+		$get = self::where("id", $id)
+		->where("owner_id", UserController::userId())
+		->first();
+
+		return $get;
+	}
+
+	/**
+	 * Update restaurant info
+	 */
+	static function updateRestaurantInfo($data)
+	{
+		$update = self::where("id", $data['id'])
+		->where("owner_id", UserController::userId())
+		->update([
+			"name" => $data["name"],
+		]);
+
+		return $update;
 	}
 }

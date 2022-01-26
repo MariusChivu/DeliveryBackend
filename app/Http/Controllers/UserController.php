@@ -93,7 +93,7 @@ class UserController extends Controller
 	 */
 	static function userId()
 	{
-		return Session::get("user")["id"];
+		return Session::get("user");
 	}
 
 	/**

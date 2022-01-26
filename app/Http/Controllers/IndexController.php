@@ -51,6 +51,17 @@ class IndexController extends Controller
 		$msg .= PaymentController::updateCard($request);
 
 		$msg .= Reviews::addReview($request);
+
+		$msg .= RestaurantController::addRestaurant($request);
+		$msg .= RestaurantController::updateRestaurant($request);
+
+		$msg .= RestaurantController::addCategory($request);
+		$msg .= RestaurantController::deleteCategory($request);
+		$msg .= RestaurantController::updateCategory($request);
+		
+		$msg .= RestaurantController::addProduct($request);
+		$msg .= RestaurantController::deleteProduct($request);
+		$msg .= RestaurantController::updateProduct($request);
 		
 		return Redirect::back()->withErrors(['msg' => $msg]);
 	}

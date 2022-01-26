@@ -24,6 +24,13 @@
 							<i class="fas fa-user-cog"></i>
 						</a>
 					</li>
+					@if ($isOwner == true) 
+						<li class='nav-item'>
+							<a class='nav-link' href='/owner'>
+								<i class="fas fa-briefcase"></i>
+							</a>
+						</li>	
+					@endif
 					<li class='nav-item'>
 						<a class='nav-link' href='/logout' >
 							<i class="fas fa-sign-out-alt"></i>

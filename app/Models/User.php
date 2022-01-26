@@ -115,10 +115,11 @@ class User extends Authenticatable
 			"mail",
 			"phone",
 			"register",
+			"type",
 			"updated_at",
 		)
 		->where("id", $id)
-		->get()[0];
+		->first();
 
 		return $info;
 	}

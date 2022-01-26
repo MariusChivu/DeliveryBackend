@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\View\View;
@@ -46,6 +47,12 @@ class AppServiceProvider extends ServiceProvider
 		{
 			$isLogin = UserController::isLogin();
 			$login->with("isLogin", $isLogin);
+		});
+
+        view()->composer("*", function(View $owner)
+		{
+			$isOwner = OwnerController::isOwner();
+			$owner->with("isOwner", $isOwner);
 		});
 
     }

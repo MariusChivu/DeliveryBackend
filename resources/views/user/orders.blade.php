@@ -5,7 +5,7 @@
 			<div class='cld-md-12 m-4'><h1>Comenzile mele</h1></div>
 			@if ($isLogin == false)
 				<div class='alert alert-danger'>Trebuie să te conectezi la cont! </div>
-			@else				
+			@else
 				@foreach ($order as $item)
 					<div class='col-md-5 m-2 order-items'
 					style='background-image: url({{ asset("img/restaurante/".$item->rest_img."/banner.jpg") }});'>
@@ -19,9 +19,7 @@
 						</div>
 					</div>
 				@endforeach
-
-			@endif
-				
+			@endif	
 		</div>
 	</div>
 @endsection
