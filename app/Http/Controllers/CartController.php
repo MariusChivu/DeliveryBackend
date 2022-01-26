@@ -89,7 +89,7 @@ class CartController extends Controller
 				$token = md5( date('d/m/Y h:i:s', time()) . "-" . rand(0,999999) );
 
 				$data_details = [
-					"user_id" => UserController::userId(),
+					"user_id" => UserController::userId()["id"],
 					"cart_token" => $token,
 					"restaurant" => Session::get("restaurantCart"),
 					"subtotal" => Cart::subtotal(),
@@ -100,7 +100,7 @@ class CartController extends Controller
 
 				foreach (Cart::content() as $item) {
 					$data_items = [
-						"user_id" => UserController::userId(),
+						"user_id" => UserController::userId()["id"],
 						"cart_token" => $token,
 						"img" => $item->options[0]["img"],
 						"name" => $item->name,
