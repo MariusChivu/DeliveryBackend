@@ -89,7 +89,7 @@ class User extends Authenticatable
 		{
 			return false;
 		} else {
-			$token = md5( date('d/m/Y h:i:s', time() . "-" . rand(0,999999) ));
+			$token = md5( date('d/m/Y h:i:s') . "-" . rand(0,999999) );
 			$create = self::insert([
 				'name' => $data["name"],
 				'mail' => $data["mail"],

@@ -38,11 +38,11 @@
 							<form action="{{ route("index") }}" method='POST'> {{ csrf_field() }}
 								<div class="input-group mt-4">
 									<span class="input-group-text">E-mail</span>
-									<input type="email" name='email' value='marius.chivu95@yahoo.com' class="form-control" placeholder="Introdu e-mailul" autocomplete="off" required>
+									<input type="email" name='email' class="form-control" placeholder="Introdu e-mailul" autocomplete="off" required>
 								</div>
 								<div class="input-group mt-4 mb-4">
 									<span class="input-group-text">Parola</span>
-									<input type="password" name='password' value='admin' class="form-control" placeholder="Introdu parola" autocomplete="off" required>
+									<input type="password" name='password' class="form-control" placeholder="Introdu parola" autocomplete="off" required>
 								</div>
 								<div class="modal-footer">
 									<button type="submit" name='login' class="btn btn-success">Conectare</button>
